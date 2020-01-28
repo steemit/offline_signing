@@ -2,7 +2,7 @@
 
 ## Simple offline transaction signing tool
 
-Because Steem uses TaPoS and transaction expiration times that are built into the transactions, you must first get a recent block number and block prefix with a computer that is online and can connect to the network. Once you obtain these from a separate online comptuer they will be good for use for the next 64k blocks (or roughly 2.2 days).
+Because Steem uses TaPoS and transaction expiration times that are built into the transactions, you must first get a recent block number and block prefix with a computer that is online and can connect to the network. Once you obtain these from a separate online computer they will be good for use for the next 64k blocks (or roughly 2.2 days).
 
 The transaction generated must be broadcast within 1 hour after being created or it will expire.
 
@@ -44,11 +44,11 @@ docker build -t="steemit/offline_signing:latest" .
 
 `curl -s --data '{"jsonrpc":"2.0", "method":"condenser_api.broadcast_transaction", "params":[{"ref_block_num":28468,"ref_block_prefix":851006437,"expiration":"2020-01-28T21:45:21","operations":[["transfer",{"from":"alice","to":"bob","amount":"10.000 STEEM","memo":""}]],"extensions":[],"signatures":["1f422e9f579951b9bf8333a9d419ad05dbdd9ac990b8aef5f9ac739ab698a7eef805143d9cdc43df620f15f4de0a06bc90cef3dd5ac07f77050a1c292b719d01f8"]}], "id":1}' https://api.steemit.com`
 
-- A successful submission will be return an empty json result, like this: `{"jsonrpc":"2.0","result":{},"id":1}`. If there is an error (such as exceeding the expiration time), you will instead receive that from the node.
+- A successful submission will return an empty json result, like this: `{"jsonrpc":"2.0","result":{},"id":1}`. If there is an error (such as exceeding the expiration time), you will instead receive that from the node.
 
 4. Verify that the transaction was successful using either a block explorer (like steemd.com/@accountname), or on the Steemit Wallet site (steemitwallet.com/@accountname). 
 
-## Alternative method without docker 
+## Alternative method without docker
 
 If you don't have or want to use docker, you can also run this repo on any system that has Node 8.7+ and NPM installed.
 
