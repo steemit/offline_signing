@@ -48,7 +48,7 @@ docker build -t="steemit/offline_signing:latest" .
 
 4. Verify that the transaction was successful using either a block explorer (like steemd.com/@accountname), or on the Steemit Wallet site (steemitwallet.com/@accountname). 
 
-## Alternative method without docker
+## Alternative method without docker 
 
 If you don't have or want to use docker, you can also run this repo on any system that has Node 8.7+ and NPM installed.
 
