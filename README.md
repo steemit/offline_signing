@@ -36,9 +36,13 @@ docker build -t="steemit/offline_signing:latest" .
 
 3. Take the generated signed transaction and broadcast it from an online computer. You have 1 hour to complete this before the transaction is expired and is no longer valid. It can be brodcasted simply using `curl`
 
-- Example command:
+- Insert the transaction in this command where it says INSERT_TRANSACTION_HERE, leave the brackets around it:
 
-`curl -s --data '{"ref_block_num":28468,"ref_block_prefix":851006437,"expiration":"2020-01-28T21:45:21","operations":[["transfer",{"from":"alice","to":"bob","amount":"10.000 STEEM","memo":""}]],"extensions":[],"signatures":["1f422e9f579951b9bf8333a9d419ad05dbdd9ac990b8aef5f9ac739ab698a7eef805143d9cdc43df620f15f4de0a06bc90cef3dd5ac07f77050a1c292b719d01f8"]}' https://api.steemit.com`
+`curl -s --data '{"jsonrpc":"2.0", "method":"condenser_api.broadcast_transaction", "params":[INSERT_TRANSACTION_HERE], "id":1}' https://api.steemit.com`
+
+- Example of fully filled in command:
+
+`curl -s --data '{"jsonrpc":"2.0", "method":"condenser_api.broadcast_transaction", "params":[{"ref_block_num":28468,"ref_block_prefix":851006437,"expiration":"2020-01-28T21:45:21","operations":[["transfer",{"from":"alice","to":"bob","amount":"10.000 STEEM","memo":""}]],"extensions":[],"signatures":["1f422e9f579951b9bf8333a9d419ad05dbdd9ac990b8aef5f9ac739ab698a7eef805143d9cdc43df620f15f4de0a06bc90cef3dd5ac07f77050a1c292b719d01f8"]}], "id":1}' https://api.steemit.com`
 
 ## Alternative method without docker
 
