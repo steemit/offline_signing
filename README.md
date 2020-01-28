@@ -26,6 +26,8 @@ docker build -t="steemit/offline_signing:latest" .
 
 - `docker run -it steemit/offline_signing:latest /bin/bash sign_offline_transfer.sh <ref block num> <prefix> <from account> <to account> <amount>`
 
+- The software will ask for your private key WIF. This can be either your active or owner key private key for a transfer operation.
+
 - Note: the <amount> must have a precision of 3 - example: 10 STEEM would be 10.000
 
 - Example of a correct command:
@@ -37,3 +39,15 @@ docker build -t="steemit/offline_signing:latest" .
 - Example command:
 
 `curl -s --data '{"ref_block_num":28468,"ref_block_prefix":851006437,"expiration":"2020-01-28T21:45:21","operations":[["transfer",{"from":"alice","to":"bob","amount":"10.000 STEEM","memo":""}]],"extensions":[],"signatures":["1f422e9f579951b9bf8333a9d419ad05dbdd9ac990b8aef5f9ac739ab698a7eef805143d9cdc43df620f15f4de0a06bc90cef3dd5ac07f77050a1c292b719d01f8"]}' https://api.steemit.com`
+
+## Alternative method without docker
+
+If you don't have or want to use docker, you can also run this repo on any system that has Node 8.7+ and NPM installed.
+
+To setup, run: `npm install`
+
+Commands to run:
+
+`node get_block_prefix.js`
+
+`node sign_offline_transfer.js <ref block num> <prefix> <from account> <to account> <amount>`
