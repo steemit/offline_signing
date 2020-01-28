@@ -1,6 +1,6 @@
 # offline_signing
 
-## Simple offline transaction signing tool
+## Simple offline transfer transaction signing tool
 
 Because Steem uses TaPoS and transaction expiration times that are built into the transactions, you must first get a recent block number and block prefix with a computer that is online and can connect to the network. Once you obtain these from a separate online computer they will be good for use for the next 64k blocks (or roughly 2.2 days).
 
