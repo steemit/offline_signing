@@ -12,7 +12,7 @@ The transaction generated must be broadcast within 1 hour after being created or
 docker build -t="steemit/offline_signing:latest" .
 `
 
-(alternatively, you can just pull in a pre-built image with `docker pull steemit/offline_signing:latest')
+(alternatively, you can just pull in a pre-built image with `docker pull steemit/offline_signing:latest`)
 
 ## Running:
 
